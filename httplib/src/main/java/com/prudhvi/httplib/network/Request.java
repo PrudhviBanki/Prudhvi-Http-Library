@@ -17,6 +17,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.prudhvi.httplib.callbacks.ResponseListener;
+import com.prudhvi.httplib.common.CustomHeaders;
 import com.prudhvi.httplib.common.Messages;
 
 import org.json.JSONArray;
@@ -70,9 +71,7 @@ public class Request {
                 /** Passing some request headers* */
                 @Override
                 public Map<String, String> getHeaders() throws AuthFailureError {
-                    HashMap<String, String> headers = new HashMap<>();
-                    headers.put("Content-Type", "application/json");
-                    return headers;
+                    return new CustomHeaders().getHeaders();
                 }
 
             };
@@ -116,9 +115,8 @@ public class Request {
                 /** Passing some request headers* */
                 @Override
                 public Map<String, String> getHeaders() throws AuthFailureError {
-                    HashMap<String, String> headers = new HashMap<>();
-                    headers.put("Content-Type", "application/json");
-                    return headers;
+
+                    return new CustomHeaders().getHeaders();
                 }
 
             };
