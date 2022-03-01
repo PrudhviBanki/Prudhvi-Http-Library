@@ -22,8 +22,10 @@ Add it in your root build.gradle at the end of repositories:
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+	
+	// In Request you need to pass current class reference and call back listener
         Request request = new Request(this, this);
+	
         request.fetchArray(100, Methods.GET, "url", null);
         request.fetchObject(101, Methods.GET, "url", null);
 
@@ -43,3 +45,6 @@ Add it in your root build.gradle at the end of repositories:
     public void failure(String response, int requestId) {
        //Failure response
     }
+# Custom headers implementation
+	CustomHeaders headers=new CustomHeaders();
+	headers.setHeader("Authorization","Bearer"+"your token");
